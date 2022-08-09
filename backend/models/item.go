@@ -19,6 +19,9 @@ type Item struct {
 	Price int `json:"price"`
 }
 
+/**
+*	A slice of items in our wishlist
+*/
 type ItemList struct {
 	Items []Item `json:"items"`
 }
