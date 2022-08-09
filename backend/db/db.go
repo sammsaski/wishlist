@@ -1,3 +1,8 @@
+/**
+* This file is responsible for creating an instance of our database
+* and establishing a connection with it.
+*/
+
 package db
 
 import (
@@ -8,23 +13,28 @@ import (
 )
 
 const (
-	host = "localhost"
+	// The host name is no longer "localhost" when our Postgres instance is containerized.
+	// Instead, the host name becomes the name of our service as defined in our docker-compose.
+	// Hence, if you check the docker-compose, our DB service is named "database".
+	host = "database"
 	port = 5432
-	// username = "postgres"
-	// password = "docker"
-	// dbname = "wishlist"
 )
 
 // returned when we request a row that doesn't exist
 var ErrNoMatch = fmt.Errorf("no matching record")
 
+/**
+*	Holds the database instance.
+*/
 type Database struct {
 	Conn *sql.DB
 }
 
+/**
+*	Establish a connection with the database.
+*/
 func Initialize(username, password, database string) (Database, error) {
 	db := Database{}
-	// dbInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, username, password, database)
 	dbInfo := fmt.Sprintf("postgres://%v:%v@%v:%v/%v?sslmode=disable", username, password, host, port, database)
 	fmt.Println(dbInfo)
 	conn, err := sql.Open("postgres", dbInfo)

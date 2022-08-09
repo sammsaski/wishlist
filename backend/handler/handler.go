@@ -1,3 +1,9 @@
+/**
+* Here, we provide the functionality for an API handler that will route
+* HTTP requests that hit the /items endpoint to their corresponding 
+* response (GET, PUT, DELETE).
+*/
+
 package handler
 
 import (
@@ -9,6 +15,9 @@ import (
 
 var dbInstance db.Database
 
+/**
+*	Create an instance of the handler.
+*/
 func NewHandler(db db.Database) http.Handler {
 	router := chi.NewRouter()
 	dbInstance = db

@@ -1,3 +1,8 @@
+/**
+* This file is responsible for defining some of the errors
+* necessary for functioning.
+*/
+
 package handler
 
 import (
