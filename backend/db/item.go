@@ -11,6 +11,9 @@ import (
 	"github.com/sammsaski/wishlist-golang/backend/models"
 )
 
+/**
+*	Return all items in the database.
+*/
 func (db Database) GetAllItems() (*models.ItemList, error) {
 	list := &models.ItemList{}
 	items, err := db.Conn.Query("SELECT * FROM wishlist ORDER BY ID DESC;")
@@ -28,6 +31,9 @@ func (db Database) GetAllItems() (*models.ItemList, error) {
 	return list, nil
 }
 
+/**
+*	Add an item to the database.
+*/
 func (db Database) AddItem(item *models.Item) error {
 	var id int
 	query := `INSERT INTO wishlist (name, price) VALUES ($1, $2) RETURNING id;`
@@ -39,6 +45,9 @@ func (db Database) AddItem(item *models.Item) error {
 	return nil
 }
 
+/**
+*	Retrieve a specific item (by UID) from the database.
+*/
 func (db Database) GetItemById(itemId int) (models.Item, error) {
 	item := models.Item{}
 	query := `SELECT * FROM wishlist WHERE id = $1;`
@@ -51,6 +60,9 @@ func (db Database) GetItemById(itemId int) (models.Item, error) {
 	}
 }
 
+/**
+*	Remove a specific item (by UID) from the database.
+*/
 func (db Database) DeleteItem(itemId int) error {
 	query := `DELETE FROM wishlist WHERE id = $1;`
 	_, err := db.Conn.Exec(query, itemId)
@@ -62,6 +74,9 @@ func (db Database) DeleteItem(itemId int) error {
 	}
 }
 
+/**
+*	Update a specific item (by UID) from the database.
+*/
 func (db Database) UpdateItem(itemId int, itemData models.Item) (models.Item, error) {
 	item := models.Item{}
 	query := `UPDATE wishlist SET name=$1, price=$2 WHERE id=$3 RETURNING id, name, price;`

@@ -21,6 +21,7 @@ import (
 // across middlewares and request handlers using Go's context
 var itemIDKey = "itemID"
 
+// TODO: Add relevant documentation.
 func items(router chi.Router) {
 	router.Get("/", getAllItems)
 	router.Post("/", createItem)
