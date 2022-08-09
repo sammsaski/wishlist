@@ -13,7 +13,10 @@ import (
 )
 
 const (
-	host = "localhost"
+	// The host name is no longer "localhost" when our Postgres instance is containerized.
+	// Instead, the host name becomes the name of our service as defined in our docker-compose.
+	// Hence, if you check the docker-compose, our DB service is named "database".
+	host = "database"
 	port = 5432
 )
 
