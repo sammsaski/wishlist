@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.HomePageHeader {
+  background: black;
+  color: red;
+  text-align: center;
+}
