@@ -1,14 +1,38 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
-class DisplayItems extends Component {
+export default function DisplayItems() {
+    const [items, setItems] = useState([]);
 
-    constructor() {
-        super();
-        this.state = {
-            pong: 'pending'
-        }
-    }
+    useEffect(() => {
+        axios.get('items')
+            .then((response) => {
+                setItems(response.data["items"]);
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+    })
+
+    const data = items.map(item => {
+        return <div>Name: {item.name}, Price: {item.price}</div>
+    })
+
+    return (
+        <div>Data from API!
+            { data }
+        </div>
+    )
+}
+
+
+
+// class DisplayItems extends Component {
+
+//     constructor() {
+//         super();
+//         this.state = {"items": []};
+//     }
 
     // componentWillMount() {
     //     axios.get('api/ping')
@@ -21,19 +45,19 @@ class DisplayItems extends Component {
     //             console.log(error);
     //         });
     // }
-    componentWillMount() {
-        axios.get('items')
-            .then((response) => {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    // componentWillMount() {
+    //     axios.get('items')
+    //         .then((response) => {
+    //             this.setState(response.data["items"]);
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
 
-    render() {
-        return <h1>Hello World</h1>;
-    }
-}
+    // render() {
+    //     return <h1>Hello World</h1>;
+    // }
+// }
 
-export default DisplayItems;
+// export default DisplayItems;
