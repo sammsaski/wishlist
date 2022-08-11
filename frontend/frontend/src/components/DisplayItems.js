@@ -4,31 +4,6 @@ import axios from 'axios';
 export default function DisplayItems() {
     const [items, setItems] = useState([]);
 
-    //
-    // function buildTable() {
-    //     // create table
-    //     const table = <table></table>;
-    //     table.appendChild(thead);
-    //     table.appendChild(<tbody id="table-body"></tbody>)
-
-    //     // create table body
-    //     const tableBody = document.getElementById('table-body');
-    //     const tableRow = <tr></tr>;
-    //     items.forEach((item) => {
-    //         // fill id
-    //         tableRow.appendChild(<td>{item.id}</td>)
-
-    //         // fill name
-    //         tableRow.appendChild(<td>{item.name}</td>)
-
-    //         // fill price
-    //         tableRow.appendChild(<td>{item.price}</td>)
-    //     });
-    //     tableBody.appendChild(tableRow);
-
-    //     return table;
-    // }
-
     useEffect(() => {
         axios.get('items')
             .then((response) => {
