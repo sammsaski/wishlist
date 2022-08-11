@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 export default function DeleteItem() {
-    const [itemID, setItemID] = useState(0)
+    const [itemID, setItemID] = useState(0);
 
     /**
      * Submit request to delete item with ID = itemID.
