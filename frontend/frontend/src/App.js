@@ -1,6 +1,7 @@
 import './App.css';
 import DisplayItems from './components/DisplayItems';
 import CreateItem from './components/CreateItem';
+import DeleteItem from './components/DeleteItem';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
               
               <div>
                 <CreateItem></CreateItem>
+              </div>
+              <div>
+                <DeleteItem></DeleteItem>
               </div>
             </div>
           </div>
