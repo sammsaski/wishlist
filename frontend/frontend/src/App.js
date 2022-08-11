@@ -1,7 +1,6 @@
 import './App.css';
 import DisplayItems from './components/DisplayItems';
-import CreateItem from './components/CreateItem';
-import DeleteItem from './components/DeleteItem';
+import Actions from './components/Actions';
 
 function App() {
   return (
@@ -20,26 +19,24 @@ function App() {
         <div className="row">
           <div className="col-12 text-center">
             <div className="row d-flex justify-content-center">
-              <div className="col-6" id="extra-class">
+              <div className="col-6">
                 <DisplayItems></DisplayItems>
               </div>
-              
-              <div>
-                <CreateItem></CreateItem>
-              </div>
-              <div>
-                <DeleteItem></DeleteItem>
+            </div>
+          </div>
+        </div>
+
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 text-center">
+              <div className="row d-flex justify-content-center">
+                <Actions></Actions>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div id="random-div"></div>
-
     </div>
-    
-    
   );
 }
 
