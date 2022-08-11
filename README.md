@@ -6,7 +6,7 @@ This project was built with the intent of having a fully functional + completed 
 1. Listing all items in the wishlist on the page.
 2. Adding items to the wishlist.
 3. Deleting items from the wishlist.
-4. #TODO: Updating items from the wishlist.
+4. Updating items from the wishlist.
 By implementing these simple operations, I was able to practice developing a RESTful API using Go.
 
 ##  How to Deploy
