@@ -10,7 +10,7 @@ This project was built with the intent of having a fully functional + completed 
 
 By implementing these simple operations, I was able to practice developing a RESTful API using Go.
 
-##  How to Deploy
+##  How to deploy
 Deployment is split into two stages, both of which will have their steps documented here. The two stages are:
 1. PostgreSQL + Go Backend API
 2. React Frontend
